@@ -693,8 +693,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!gv('s-date')) { markValid('s-date', false); ok = false; } else { markValid('s-date', true); }
 
-    var irVal = parseTimeStrict(gv('s-ir'));
-    if (isNaN(irVal)) {
+    var irVal = parseTime(gv('s-ir'));
+
+if (isNaN(irVal)) {
   markValid('s-ir', false);
   $('s-ir-err').classList.add('show');
   ok = false;
@@ -731,7 +732,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m += '⏱ متوسط الاستجابة: *' + gv('s-ir') + ' دقيقة*\n';
     m += '📞 عدد البلاغات: *' + gv('s-total') + '*\n';
     m += '⚡ البلاغات السريعة: *' + gv('s-fast') + '*\n';
-    if (!isNaN(irVal) && irVal > 8 && irVal !== 0) {
+    if (!isNaN(irVal) && irVal > (8 * 60))
       m += '📝 مبرر ارتفاع المؤشر: ' + gv('s-justify') + '\n';
     }
 
