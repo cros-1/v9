@@ -516,22 +516,29 @@ document.addEventListener('DOMContentLoaded', function () {
     jwrap.classList.remove('show');
     jfield.style.display = 'none';
     err.classList.remove('show');
+    markValid('s-ir', true);
     return;
   }
 
-  var secs = parseTimeStrict(raw);
+  var secs = parseTime(raw);
 
+  // ❌ صيغة غلط
   if (isNaN(secs)) {
     err.classList.add('show');
+    markValid('s-ir', false);
     badge.innerHTML = '';
     jwrap.classList.remove('show');
     jfield.style.display = 'none';
     return;
   }
 
+  // ✅ صيغة صحيحة
   err.classList.remove('show');
+  markValid('s-ir', true);
 
-  if (secs <= 480) {
+  var threshold = 8 * 60; // 08:00
+
+  if (secs <= threshold) {
     badge.innerHTML = '<span class="indicator-badge badge-ok">✅ المؤشر ضمن الحد المقبول</span>';
     jwrap.classList.remove('show');
     jfield.style.display = 'none';
