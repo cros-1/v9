@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>النماذج الميدانية</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4f8;color:#1c2833;min-height:100vh;}
+.page{display:none;min-height:100vh;background:#f0f4f8;}
+.hdr{color:#fff;padding:20px 16px 16px;text-align:center;background:linear-gradient(135deg,#1a5276,#1f618d);box-shadow:0 3px 10px rgba(0,0,0,.2);}
+.hdr h1{font-size:1.3rem;font-weight:700;margin-bottom:3px;}
+.hdr p{font-size:.75rem;opacity:.8;}
+.hw{padding:16px;max-width:520px;margin:0 auto;}
+.st{font-size:.7rem;font-weight:700;color:#7f8c8d;letter-spacing:1px;margin:16px 0 9px;}
+.fg{display:flex;flex-direction:column;gap:9px;}
+.fc{background:#fff;border:1px solid #d5e8f0;border-radius:14px;padding:14px 15px;display:flex;align-items:center;gap:13px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.07);border-right:5px solid transparent;width:100%;text-align:right;font-family:inherit;}
+.fc:active{opacity:.85;}
+.ic{font-size:1.9rem;width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.inf{flex:1;}.nm{font-weight:700;font-size:.93rem;margin-bottom:2px;}.ds{font-size:.73rem;color:#7f8c8d;}.ar{color:#7f8c8d;font-size:1.1rem;}
+.cb{border-right-color:#2e86c1;}.cb .ic{background:#eaf4fb;}
+.cg{border-right-color:#1e8449;}.cg .ic{background:#eafaf1;}
+.co{border-right-color:#d35400;}.co .ic{background:#fef5e7;}
+.cr{border-right-color:#c0392b;}.cr .ic{background:#fdedec;}
+.ck{border-right-color:#b7950b;}.ck .ic{background:#fef9e7;}
+.ct{border-right-color:#148f77;}.ct .ic{background:#e8f8f5;}
+.inner{max-width:520px;margin:0 auto;padding:12px;}
+.phdr{display:flex;align-items:center;gap:10px;padding:13px 15px;color:#fff;}
+.bk{background:rgba(255,255,255,.18);border:none;color:#fff;border-radius:8px;padding:5px 13px;cursor:pointer;font-size:1.3rem;line-height:1;}
+.pt{font-weight:700;font-size:1rem;}.ps{font-size:.73rem;opacity:.8;}
+.card{background:#fff;border:1px solid #d5e8f0;border-radius:10px;padding:12px;margin-bottom:11px;box-shadow:0 2px 7px rgba(0,0,0,.05);}
+.card h2{font-size:.93rem;color:#1a5276;border-bottom:2px solid #d5e8f0;padding-bottom:5px;margin-bottom:9px;}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:7px;align-items:flex-start;}
+.fl{display:flex;flex-direction:column;flex:1;min-width:115px;}
+.fl label{font-size:.73rem;color:#7f8c8d;margin-bottom:3px;}
+.ff{display:flex;flex-direction:column;margin-bottom:8px;}
+.ff label{font-size:.73rem;color:#7f8c8d;margin-bottom:3px;}
+input[type=text],input[type=number],input[type=date],select,textarea{border:1px solid #d5e8f0;border-radius:6px;padding:6px 8px;font-size:.84rem;font-family:inherit;color:#1c2833;background:#f9fbfc;width:100%;direction:rtl;}
+input.invalid,select.invalid,textarea.invalid{border-color:#e74c3c;background:#fff8f8;}
+textarea{resize:vertical;min-height:54px;}
+.rg{display:flex;gap:11px;margin-top:3px;flex-wrap:wrap;}
+.rg label{display:flex;align-items:center;gap:4px;font-size:.84rem;cursor:pointer;}
+.shdr{display:flex;justify-content:space-between;align-items:center;background:#1a5276;color:#fff;border-radius:6px;padding:6px 9px;margin-bottom:7px;font-size:.83rem;font-weight:700;}
+.iblk{border:1px solid #d5e8f0;border-radius:7px;padding:9px;margin-bottom:7px;background:#f9fbff;}
+.btn{border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:.8rem;font-family:inherit;display:inline-flex;align-items:center;gap:4px;}
+.bp{background:#1a5276;color:#fff;}
+.bsm{padding:4px 8px;font-size:.73rem;}
+.bo2{background:#fff;border:1px solid #1a5276;color:#1a5276;}
+.add-bar{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+.pi{display:flex;align-items:center;gap:6px;background:#f9f9f9;border:1px solid #d5e8f0;border-radius:6px;padding:5px 8px;margin-bottom:5px;}
+.pi input{flex:1;}
+.dvd{border:none;border-top:1px dashed #d5e8f0;margin:6px 0;}
+.irow{border:1px solid #d5e8f0;border-radius:8px;padding:10px 10px 10px 42px;margin-bottom:8px;background:#f9fbff;position:relative;}
+.del{position:absolute;top:8px;left:7px;background:#e74c3c;color:#fff;border:none;border-radius:5px;padding:3px 7px;cursor:pointer;font-size:.7rem;}
+.send-btn{width:100%;padding:12px;background:#25d366;color:#fff;border:none;border-radius:8px;font-size:.98rem;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;}
+.prev-box{background:#f0f9f4;border:1px solid #a9dfbf;border-radius:8px;padding:10px;font-size:.82rem;line-height:1.85;white-space:pre-wrap;direction:rtl;min-height:80px;margin-top:8px;}
+.nr{display:flex;align-items:center;gap:6px;background:#f9f9f9;border:1px solid #d5e8f0;border-radius:6px;padding:5px 8px;margin-bottom:5px;}
+.nr .nn{font-size:.78rem;color:#7f8c8d;width:22px;flex-shrink:0;text-align:center;font-weight:700;}
+.nr input{flex:1;}
+.rm{background:none;border:none;color:#e74c3c;cursor:pointer;font-size:1rem;padding:0 3px;}
+.warn-box{background:#fef9e7;border:1px solid #f9ca24;border-radius:8px;padding:9px 12px;font-size:.82rem;color:#7d6608;margin-top:6px;display:none;}
+.warn-box.show{display:block;}
+.err-msg{color:#e74c3c;font-size:.75rem;margin-top:3px;display:none;}
+.err-msg.show{display:block;}
+.indicator-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.75rem;font-weight:700;margin-top:3px;}
+.badge-ok{background:#d5f5e3;color:#1e8449;}
+.badge-warn{background:#fdebd0;color:#a04000;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HOME ═══════════ -->
+
+<div id="pg-home" style="display:block;min-height:100vh;background:#f0f4f8">
+  <div class="hdr">
+    <h1>&#x1F691; نظام النماذج الميدانية</h1>
+    <p>اختر النموذج المطلوب</p>
+  </div>
+  <div class="hw">
+    <div class="st">نماذج المناوبة</div>
+    <div class="fg">
+      <button class="fc cb" id="btn-go-shift">
+        <div class="ic">&#x1F4CB;</div>
+        <div class="inf"><div class="nm">نموذج نهاية المناوبة</div><div class="ds">البلاغات والمركبات والغياب والطاقم</div></div>
+        <div class="ar">&#x2039;</div>
+      </button>
+      <button class="fc ct" id="btn-go-moshr">
+        <div class="ic">&#x1F4CA;</div>
+        <div class="inf"><div class="nm">مؤشر المناوبة</div><div class="ds">متوسط وقت الاستجابة وجملة الختام</div></div>
+        <div class="ar">&#x2039;</div>
+      </button>
+    </div>
+    <div class="st">نماذج الصيانة</div>
+    <div class="fg">
+      <button class="fc cg" id="btn-go-oil">
+        <div class="ic">&#x1F6E2;</div>
+        <div class="inf"><div class="nm">نموذج تغيير الزيت</div><div class="ds">تسجيل بيانات تغيير زيت المركبات</div></div>
+        <div class="ar">&#x2039;</div>
+      </button>
+      <button class="fc co" id="btn-go-device">
+        <div class="ic">&#x1F527;</div>
+        <div class="inf"><div class="nm">نموذج صيانة جهاز</div><div class="ds">صيانة الأجهزة الطبية والميدانية</div></div>
+        <div class="ar">&#x2039;</div>
+      </button>
+      <button class="fc cr" id="btn-go-vm">
+        <div class="ic">&#x1F691;</div>
+        <div class="inf"><div class="nm">نموذج صيانة مركبة</div><div class="ds">تسجيل أعطال وطلبات الصيانة</div></div>
+        <div class="ar">&#x2039;</div>
+      </button>
+    </div>
+    <div class="st">نماذج أخرى</div>
+    <div class="fg">
+      <button class="fc ck" id="btn-go-rosc">
+        <div class="ic">&#x2764;</div>
+        <div class="inf"><div class="nm">نموذج ROSC</div><div class="ds">تقرير إنعاش قلبي رئوي ناجح</div></div>
+        <div class="ar">&#x2039;</div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SHIFT ═══════════ -->
+
+<div id="pg-shift" class="page">
+  <div class="phdr" style="background:linear-gradient(135deg,#1a5276,#1f618d)">
+    <button class="bk" id="bk-shift">&#x203A;</button>
+    <div><div class="pt">نموذج نهاية المناوبة</div><div class="ps">تقرير شامل للمناوبة</div></div>
+  </div>
+  <div class="inner">
+    <div class="card">
+      <div class="row">
+        <div class="fl"><label>التاريخ *</label><input type="date" id="s-date"></div>
+        <div class="fl"><label>الفترة</label>
+          <div class="rg">
+            <label><input type="radio" name="sp" value="صباحية" checked> صباحية</label>
+            <label><input type="radio" name="sp" value="مسائية"> مسائية</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+```
+<div class="card" style="border-right:4px solid #2471a3">
+  <h2>&#x1F4CA; الموشر</h2>
+  <div class="ff">
+    <label>متوسط وقت الاستجابة *</label>
+    <input type="text" id="s-ir" placeholder="مثال: 07:55 أو 8 دقائق">
+    <div id="s-ir-badge"></div>
+  </div>
+  <div class="ff">
+    <label>عدد البلاغات *</label>
+    <input type="number" id="s-total" placeholder="إجمالي البلاغات" min="0">
+  </div>
+  <div class="ff">
+    <label>عدد البلاغات السريعة *</label>
+    <input type="number" id="s-fast" placeholder="البلاغات السريعة" min="0">
+  </div>
+  <div id="s-justify-wrap" class="warn-box">
+    &#x26A0;&#xFE0F; المؤشر تجاوز 8 دقائق — يرجى إدخال المبرر
+  </div>
+  <div class="ff" id="s-justify-field" style="display:none;margin-top:6px">
+    <label>مبرر ارتفاع المؤشر *</label>
+    <textarea id="s-justify" placeholder="أدخل مبرر ارتفاع المؤشر..."></textarea>
+    <span class="err-msg" id="s-justify-err">هذا الحقل إلزامي عند ارتفاع المؤشر</span>
+  </div>
+</div>
+
+<div class="card">
+  <h2>&#x1F697; المركبات</h2>
+  <div class="row">
+    <div class="fl"><label>عاملة</label><input type="number" id="s-vw" min="0"></div>
+    <div class="fl"><label>احتياط</label><input type="number" id="s-vr" min="0"></div>
+    <div class="fl"><label>متعطلة</label><input type="number" id="s-vb" min="0"></div>
+  </div>
+  <div class="ff"><label>ملاحظات الأعطال</label><textarea id="s-vn" placeholder="ملاحظات..."></textarea></div>
+</div>
+
+<div class="card">
+  <h2>&#x1F4CB; بلاغات التدخل السريع</h2>
+  <div id="s-secs"></div>
+</div>
+
+<div class="card">
+  <h2>&#x1F464; الغياب والمتأخرين</h2>
+  <div style="font-size:.8rem;font-weight:700;margin-bottom:5px">أسماء الغياب</div>
+  <div id="s-abs"></div>
+  <button class="btn bo2 bsm" id="btn-add-abs">&#x2795; إضافة غياب</button>
+  <hr class="dvd">
+  <div style="font-size:.8rem;font-weight:700;margin:7px 0 5px">أسماء المتأخرين</div>
+  <div id="s-lat"></div>
+  <button class="btn bo2 bsm" id="btn-add-lat">&#x2795; إضافة متأخر</button>
+</div>
+
+<div class="card"><h2>&#x1F4DD; ملاحظات عامة</h2><textarea id="s-gn" placeholder="ملاحظات..."></textarea></div>
+
+<div class="card">
+  <h2>&#x1F465; معلومات الطاقم</h2>
+  <div class="row">
+    <div class="fl"><label>كبير المسعفين</label><input type="text" id="s-ch"></div>
+    <div class="fl"><label>المساعد</label><input type="text" id="s-as"></div>
+  </div>
+</div>
+<button class="send-btn" id="btn-s-send">&#x1F4E4; إرسال على الواتساب</button>
+```
+
+  </div>
+</div>
+
+<!-- ═══════════ MOSHR ═══════════ -->
+
+<div id="pg-moshr" class="page">
+  <div class="phdr" style="background:linear-gradient(135deg,#148f77,#1abc9c)">
+    <button class="bk" id="bk-moshr">&#x203A;</button>
+    <div><div class="pt">مؤشر المناوبة</div><div class="ps">قطاع الوسط</div></div>
+  </div>
+  <div class="inner">
+    <div class="card">
+      <div class="ff"><label>التاريخ</label><input type="date" id="m-d"></div>
+      <div class="ff" style="margin-top:7px"><label>المناوبة</label>
+        <div class="rg">
+          <label><input type="radio" name="mp" value="صباحية" checked> صباحية</label>
+          <label><input type="radio" name="mp" value="مسائية"> مسائية</label>
+        </div>
+      </div>
+      <div class="ff" style="margin-top:7px"><label>متوسط وقت الاستجابة</label><input type="text" id="m-r" placeholder="مثال: 8 دقائق"></div>
+    </div>
+    <div class="card">
+      <h2>&#x1F4AC; جملة الختام</h2>
+      <label style="font-size:.73rem;color:#7f8c8d;display:block;margin-bottom:4px">اختر جملة</label>
+      <select id="m-ph">
+        <option value="">-- بدون جملة --</option>
+        <option value="الله يعطيكم العافية جميعاً ماقصرتوا 🌹">الله يعطيكم العافية جميعاً ماقصرتوا 🌹</option>
+        <option value="جزاكم الله خيراً على جهودكم المبذولة 🌹">جزاكم الله خيراً على جهودكم المبذولة 🌹</option>
+        <option value="بارك الله فيكم ونفع بكم 🌹">بارك الله فيكم ونفع بكم 🌹</option>
+        <option value="شكراً لكل من أسهم في إنجاح هذه المناوبة 🌹">شكراً لكل من أسهم 🌹</option>
+        <option value="وفقكم الله وسدد خطاكم 🌹">وفقكم الله وسدد خطاكم 🌹</option>
+      </select>
+      <div class="prev-box" id="m-prev"></div>
+    </div>
+    <button class="send-btn" style="background:#148f77" id="btn-m-send">&#x1F4E4; إرسال على الواتساب</button>
+  </div>
+</div>
+
+<!-- ═══════════ OIL ═══════════ -->
+
+<div id="pg-oil" class="page">
+  <div class="phdr" style="background:linear-gradient(135deg,#1e8449,#239b56)">
+    <button class="bk" id="bk-oil">&#x203A;</button>
+    <div><div class="pt">نموذج تغيير الزيت</div><div class="ps">تسجيل بيانات تغيير زيت المركبات</div></div>
+  </div>
+  <div class="inner">
+    <div class="card"><div class="ff"><label>التاريخ</label><input type="date" id="o-d"></div></div>
+    <div class="card">
+      <h2>&#x1F6E2; بيانات المركبة</h2>
+      <div class="ff"><label>نداء الفرقة</label><input type="text" id="o-call" placeholder="نداء الفرقة"></div>
+      <div class="ff"><label>رقم اللوحة</label><input type="text" id="o-plate" placeholder="رقم اللوحة"></div>
+      <div class="ff"><label>العداد الحالي (كم)</label><input type="text" id="o-km" placeholder="كم"></div>
+      <div class="ff"><label>الموعد القادم لتغيير الزيت (كم)</label><input type="text" id="o-next" placeholder="كم"></div>
+    </div>
+    <div class="card"><h2>&#x1F4DD; ملاحظات</h2><textarea id="o-n" placeholder="ملاحظات..."></textarea></div>
+    <button class="send-btn" style="background:#1e8449" id="btn-o-send">&#x1F4E4; إرسال على الواتساب</button>
+  </div>
+</div>
+
+<!-- ═══════════ DEVICE ═══════════ -->
+
+<div id="pg-device" class="page">
+  <div class="phdr" style="background:linear-gradient(135deg,#d35400,#e67e22)">
+    <button class="bk" id="bk-device">&#x203A;</button>
+    <div><div class="pt">نموذج صيانة جهاز</div><div class="ps">صيانة الأجهزة الطبية</div></div>
+  </div>
+  <div class="inner">
+    <div class="card"><div class="ff"><label>التاريخ</label><input type="date" id="d-d"></div></div>
+    <div class="card">
+      <h2>&#x1F527; بيانات الجهاز</h2>
+      <div class="ff"><label>اسم الجهاز</label><input type="text" id="d-name" placeholder="اسم الجهاز"></div>
+      <div class="ff"><label>السيريال نمبر</label><input type="text" id="d-serial" placeholder="Serial No."></div>
+      <div class="ff"><label>وصف العطل</label><input type="text" id="d-fault" placeholder="وصف العطل"></div>
+      <div class="ff">
+        <label>الشدة</label>
+        <select id="d-severity">
+          <option value="بسيط">بسيط</option>
+          <option value="متوسط">متوسط</option>
+          <option value="خطير">خطير</option>
+        </select>
+      </div>
+      <div class="ff">
+        <label>حالة الصيانة *</label>
+        <select id="d-status">
+          <option value="">-- اختر --</option>
+          <option value="يحتاج صيانة">يحتاج صيانة</option>
+          <option value="تم الإصلاح">تم الإصلاح</option>
+          <option value="خارج الخدمة">خارج الخدمة</option>
+          <option value="أخرى">أخرى</option>
+        </select>
+      </div>
+      <div class="ff" id="d-other-wrap" style="display:none">
+        <label>تفاصيل أخرى *</label>
+        <input type="text" id="d-other" placeholder="أدخل التفاصيل...">
+        <span class="err-msg" id="d-other-err">هذا الحقل إلزامي</span>
+      </div>
+    </div>
+    <div class="card"><h2>&#x1F4DD; ملاحظات</h2><textarea id="d-n" placeholder="ملاحظات..."></textarea></div>
+    <button class="send-btn" style="background:#d35400" id="btn-d-send">&#x1F4E4; إرسال على الواتساب</button>
+  </div>
+</div>
+
+<!-- ═══════════ VM ═══════════ -->
+
+<div id="pg-vm" class="page">
+  <div class="phdr" style="background:linear-gradient(135deg,#c0392b,#e74c3c)">
+    <button class="bk" id="bk-vm">&#x203A;</button>
+    <div><div class="pt">نموذج صيانة مركبة</div><div class="ps">تسجيل أعطال وطلبات الصيانة</div></div>
+  </div>
+  <div class="inner">
+    <div class="card"><div class="ff"><label>التاريخ</label><input type="date" id="v-d"></div></div>
+    <div class="card">
+      <h2>&#x1F691; بيانات المركبة</h2>
+      <div class="row">
+        <div class="fl"><label>رقم المركبة</label><input type="text" id="v-num" placeholder="رقم اللوحة"></div>
+        <div class="fl"><label>نوع المركبة</label><input type="text" id="v-typ" placeholder="نوع/موديل"></div>
+      </div>
+      <div class="row">
+        <div class="fl"><label>عداد الكيلومترات</label><input type="text" id="v-km" placeholder="كم"></div>
+        <div class="fl"><label>الأولوية</label>
+          <select id="v-pri">
+            <option>عادية</option><option>عاجلة</option><option>حرجة</option>
+          </select>
+        </div>
+      </div>
+      <div class="ff">
+        <label>حالة الصيانة *</label>
+        <select id="v-status">
+          <option value="">-- اختر --</option>
+          <option value="يحتاج صيانة">يحتاج صيانة</option>
+          <option value="تم الإصلاح">تم الإصلاح</option>
+          <option value="خارج الخدمة">خارج الخدمة</option>
+          <option value="أخرى">أخرى</option>
+        </select>
+      </div>
+      <div class="ff" id="v-other-wrap" style="display:none">
+        <label>تفاصيل أخرى *</label>
+        <input type="text" id="v-other" placeholder="أدخل التفاصيل...">
+        <span class="err-msg" id="v-other-err">هذا الحقل إلزامي</span>
+      </div>
+    </div>
+    <div class="card">
+      <h2>&#x26A0; العطل</h2>
+      <div class="ff"><label>وصف العطل</label><input type="text" id="v-fault" placeholder="وصف العطل"></div>
+      <div class="ff">
+        <label>الشدة</label>
+        <select id="v-severity">
+          <option value="بسيط">بسيط</option>
+          <option value="متوسط">متوسط</option>
+          <option value="خطير">خطير</option>
+        </select>
+      </div>
+    </div>
+    <div class="card"><h2>&#x1F4DD; ملاحظات</h2><textarea id="v-n" placeholder="ملاحظات..."></textarea></div>
+    <button class="send-btn" style="background:#c0392b" id="btn-v-send">&#x1F4E4; إرسال على الواتساب</button>
+  </div>
+</div>
+
+<!-- ═══════════ ROSC ═══════════ -->
+
+<div id="pg-rosc" class="page">
+  <div class="phdr" style="background:linear-gradient(135deg,#922b21,#e74c3c)">
+    <button class="bk" id="bk-rosc">&#x203A;</button>
+    <div><div class="pt">نموذج ROSC</div><div class="ps">إنعاش قلبي رئوي ناجح</div></div>
+  </div>
+  <div class="inner">
+    <div class="card">
+      <h2>&#x1F4CB; بيانات البلاغ</h2>
+      <div class="ff"><label>توقيت البلاغ</label><input type="text" id="r-ti" placeholder="مثال: 14:30"></div>
+      <div class="ff" style="margin-top:7px"><label>نوع البلاغ</label><input type="text" id="r-ty"></div>
+      <div class="ff" style="margin-top:7px"><label>موقع البلاغ</label><input type="text" id="r-lo"></div>
+      <div class="ff" style="margin-top:7px"><label>زمن الاستجابة</label><input type="text" id="r-re" placeholder="مثال: 8 دقائق"></div>
+    </div>
+    <div class="card"><h2>&#x1F691; الوحدات المستجيبة</h2><textarea id="r-un" placeholder="اذكر الوحدات..." style="min-height:60px"></textarea></div>
+    <div class="card">
+      <h2>&#x2705; نتائج التدخل</h2>
+      <div class="row">
+        <div class="fl"><label>هل تحقق ROSC؟</label><select id="r-ro"><option value="نعم">نعم</option><option value="لا">لا</option></select></div>
+        <div class="fl"><label>هل تم استخدام جهاز لوكس؟</label><select id="r-lu"><option value="نعم">نعم</option><option value="لا">لا</option></select></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>&#x1F465; أسماء الزملاء</h2>
+      <div id="r-names"></div>
+      <button class="btn bo2 bsm" id="btn-r-add">&#x2795; إضافة اسم</button>
+    </div>
+    <div class="card">
+      <h2>&#x1F3AF; التحكم والتنسيق</h2>
+      <div class="ff"><label>تحكم عملياتي</label><input type="text" id="r-op"></div>
+      <div class="ff" style="margin-top:7px"><label>تنسيق استجابة</label><input type="text" id="r-co"></div>
+    </div>
+    <button class="send-btn" style="background:#922b21" id="btn-r-send">&#x1F4E4; إرسال على الواتساب</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  /* ─────────────────────────────────────────
+     UTILITIES
+  ───────────────────────────────────────── */
+  function $(id) { return document.getElementById(id); }
+  function gv(id) { var e = $(id); return e ? e.value.trim() : ''; }
+
+  function addEl(tag, props, cssText) {
+    var e = document.createElement(tag);
+    if (props) {
+      Object.keys(props).forEach(function (k) { e[k] = props[k]; });
+    }
+    if (cssText) e.style.cssText = cssText;
+    return e;
+  }
+
+  function bindClick(id, fn) {
+    var e = $(id);
+    if (e) e.addEventListener('click', fn);
+  }
+
+  function setDisplay(id, show) {
+    var e = $(id);
+    if (e) e.style.display = show ? 'block' : 'none';
+  }
+
+  function markValid(id, valid) {
+    var e = $(id);
+    if (!e) return;
+    if (valid) e.classList.remove('invalid');
+    else e.classList.add('invalid');
+  }
+
+  /* ─────────────────────────────────────────
+     NAVIGATION
+  ───────────────────────────────────────── */
+  function showPage(id) {
+    $('pg-home').style.display = 'none';
+    var pages = document.getElementsByClassName('page');
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].style.display = 'none';
+    }
+    var pg = $(id);
+    if (pg) pg.style.display = 'block';
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  function goHome() {
+    var pages = document.getElementsByClassName('page');
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].style.display = 'none';
+    }
+    $('pg-home').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  bindClick('btn-go-shift',  function () { showPage('pg-shift'); });
+  bindClick('btn-go-moshr',  function () { showPage('pg-moshr'); });
+  bindClick('btn-go-oil',    function () { showPage('pg-oil'); });
+  bindClick('btn-go-device', function () { showPage('pg-device'); });
+  bindClick('btn-go-vm',     function () { showPage('pg-vm'); });
+  bindClick('btn-go-rosc',   function () { showPage('pg-rosc'); });
+
+  ['shift','moshr','oil','device','vm','rosc'].forEach(function (p) {
+    bindClick('bk-' + p, goHome);
+  });
+
+  /* ─────────────────────────────────────────
+     SET TODAY'S DATE
+  ───────────────────────────────────────── */
+  var today = new Date().toISOString().split('T')[0];
+  ['s-date','o-d','d-d','v-d','m-d'].forEach(function (id) {
+    var e = $(id);
+    if (e) e.value = today;
+  });
+
+  /* ─────────────────────────────────────────
+     WHATSAPP SENDER
+  ───────────────────────────────────────── */
+  function sendWA(msg) {
+    var url = 'https://wa.me/?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
+  }
+
+  /* ─────────────────────────────────────────
+     ═══ SHIFT FORM ═══
+  ───────────────────────────────────────── */
+  var sCount = 0;
+  var sSecs  = {};
+
+  /* Indicator logic */
+  /* تحويل HH:MM إلى دقائق — يقبل أي نص */
+  function parseTime(str) {
+    if (!str) return NaN;
+    str = str.trim();
+    /* محاولة HH:MM */
+    var m = str.match(/^(\d{1,2}):(\d{2})$/);
+    if (m) return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+    /* محاولة رقم فقط */
+    var n = parseFloat(str);
+    if (!isNaN(n)) return n;
+    /* نص حر — نرجع 0 لأغراض التحقق (الحقل ممتلئ) */
+    return 0;
+  }
+
+  function updateIndicator() {
+    var raw    = gv('s-ir');
+    var badge  = $('s-ir-badge');
+    var jwrap  = $('s-justify-wrap');
+    var jfield = $('s-justify-field');
+
+    if (!raw) {
+      badge.innerHTML = '';
+      jwrap.classList.remove('show');
+      jfield.style.display = 'none';
+      return;
+    }
+
+    var mins = parseTime(raw);
+    /* إذا كان نصاً حراً (لا يمكن تحديد الدقائق) نخفي المؤشر */
+    var mmStr = raw.match(/^(\d{1,2}):(\d{2})$/) || !isNaN(parseFloat(raw));
+    if (!mmStr) {
+      badge.innerHTML = '';
+      jwrap.classList.remove('show');
+      jfield.style.display = 'none';
+      return;
+    }
+    if (mins <= 8) {
+      badge.innerHTML = '<span class="indicator-badge badge-ok">✅ المؤشر ضمن الحد المقبول</span>';
+      jwrap.classList.remove('show');
+      jfield.style.display = 'none';
+    } else {
+      badge.innerHTML = '<span class="indicator-badge badge-warn">⚠️ المؤشر مرتفع — يلزم مبرر</span>';
+      jwrap.classList.add('show');
+      jfield.style.display = 'block';
+    }
+  }
+  var irEl = $('s-ir');
+  if (irEl) irEl.addEventListener('input', updateIndicator);
+
+  /* Sectors */
+  function sRenderIncs(sid) {
+    var c = $('si' + sid);
+    if (!c) return;
+    c.innerHTML = '';
+    sSecs[sid].incs.forEach(function (inc, idx) {
+      var blk = addEl('div');
+      blk.className = 'iblk';
+      var row = addEl('div', null, 'display:flex;align-items:center;gap:8px');
+      var lbl = addEl('span', { textContent: 'استجابة أولية ' + inc.n + ':' },
+        'font-weight:700;font-size:.88rem;white-space:nowrap');
+      var inp = addEl('input', { type: 'text', placeholder: 'رقم البلاغ أو ملاحظة', value: inc.note || '' },
+        'flex:1;border:1px solid #d5e8f0;border-radius:6px;padding:6px 8px;font-size:.84rem;font-family:inherit;direction:rtl;background:#f9fbfc;');
+      inp.addEventListener('input', (function (s, i) {
+        return function () { sSecs[s].incs[i].note = this.value; };
+      })(sid, idx));
+      var btn = addEl('button', { textContent: 'حذف' },
+        'background:#e74c3c;color:#fff;border:none;border-radius:5px;padding:4px 10px;cursor:pointer;font-size:.8rem;white-space:nowrap;font-family:inherit;');
+      btn.addEventListener('click', (function (s, i) {
+        return function () { sSecs[s].incs.splice(i, 1); sRenderIncs(s); };
+      })(sid, idx));
+      row.appendChild(lbl); row.appendChild(inp); row.appendChild(btn);
+      blk.appendChild(row); c.appendChild(blk);
+    });
+  }
+
+  function sAddInc(sid) {
+    sCount++;
+    sSecs[sid].incs.push({ n: sCount, note: '' });
+    sRenderIncs(sid);
+  }
+
+  function sBulk(sid, n) {
+    for (var i = 0; i < n; i++) { sCount++; sSecs[sid].incs.push({ n: sCount, note: '' }); }
+    sRenderIncs(sid);
+  }
+
+  function sRender() {
+    var c = $('s-secs');
+    if (!c) return;
+    c.innerHTML = '';
+    Object.keys(sSecs).forEach(function (sid) {
+      var s    = sSecs[sid];
+      var wrap = addEl('div', null, 'margin-bottom:13px');
+
+      var hdr  = addEl('div');
+      hdr.className = 'shdr';
+      var lbl  = addEl('span', { textContent: 'القطاع:' });
+      var sinp = addEl('input', { type: 'text', value: s.name },
+        'background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:4px;padding:2px 6px;font-size:.8rem;width:120px;text-align:right;direction:rtl;');
+      sinp.addEventListener('input', (function (id) {
+        return function () { sSecs[id].name = this.value; };
+      })(sid));
+      var dbtn = addEl('button', { textContent: '🗑' },
+        'background:none;border:none;color:#fff;cursor:pointer;font-size:1rem;');
+      dbtn.addEventListener('click', (function (id) {
+        return function () { delete sSecs[id]; sRender(); };
+      })(sid));
+      hdr.appendChild(lbl); hdr.appendChild(sinp); hdr.appendChild(dbtn);
+      wrap.appendChild(hdr);
+
+      var idiv = addEl('div');
+      idiv.id  = 'si' + sid;
+      wrap.appendChild(idiv);
+
+      /* داعمة */
+      var sd = addEl('div', null, 'margin-top:9px');
+      sd.innerHTML = '<div style="font-weight:700;font-size:.86rem;margin-bottom:4px">استجابة داعمة:</div>';
+      var sta = addEl('textarea', null,
+        'width:100%;min-height:48px;border:1px solid #d5e8f0;border-radius:6px;padding:6px 8px;font-size:.84rem;font-family:inherit;resize:vertical;direction:rtl;background:#f9fbfc;');
+      sta.id = 'sup' + sid;
+      sd.appendChild(sta);
+      wrap.appendChild(sd);
+
+      /* ملغية */
+      var cd = addEl('div', null, 'margin-top:9px;margin-bottom:9px');
+      cd.innerHTML = '<div style="font-weight:700;font-size:.86rem;margin-bottom:4px">استجابة ملغية:</div>';
+      var cta = addEl('textarea', null,
+        'width:100%;min-height:48px;border:1px solid #d5e8f0;border-radius:6px;padding:6px 8px;font-size:.84rem;font-family:inherit;resize:vertical;direction:rtl;background:#f9fbfc;');
+      cta.id = 'can' + sid;
+      cd.appendChild(cta);
+      wrap.appendChild(cd);
+
+      /* أزرار */
+      var bar = addEl('div');
+      bar.className = 'add-bar';
+
+      var b1 = addEl('button', { textContent: '➕ إضافة استجابة أولية' });
+      b1.className = 'btn bp bsm';
+      b1.addEventListener('click', (function (id) { return function () { sAddInc(id); }; })(sid));
+
+      var b2 = addEl('button', { textContent: 'إضافة 5' });
+      b2.className = 'btn bo2 bsm';
+      b2.addEventListener('click', (function (id) { return function () { sBulk(id, 5); }; })(sid));
+
+      var b3 = addEl('button', { textContent: 'أضف 1..7' });
+      b3.className = 'btn bo2 bsm';
+      b3.addEventListener('click', (function (id) { return function () { sBulk(id, 7); }; })(sid));
+
+      bar.appendChild(b1); bar.appendChild(b2); bar.appendChild(b3);
+      wrap.appendChild(bar);
+      c.appendChild(wrap);
+      sRenderIncs(sid);
+    });
+  }
+
+  function sAddSec(nm) {
+    var id = 'sc' + Date.now() + Math.random().toString(36).slice(2);
+    sSecs[id] = { name: nm || '', incs: [] };
+    sRender();
+  }
+
+  bindClick('btn-add-sec', function () { sAddSec(''); });
+  sAddSec('الوسط');
+
+  /* غياب / متأخرين */
+  function addPerson(listId) {
+    var c = $(listId);
+    if (!c) return;
+    var d   = addEl('div');
+    d.className = 'pi';
+    var inp = addEl('input', { type: 'text', placeholder: 'الاسم الكامل' },
+      'flex:1;border:1px solid #d5e8f0;border-radius:6px;padding:6px 8px;font-size:.84rem;font-family:inherit;direction:rtl;background:#f9fbfc;');
+    var btn = addEl('button', { textContent: '✕' });
+    btn.className = 'rm';
+    btn.addEventListener('click', function () { d.parentNode.removeChild(d); });
+    d.appendChild(inp); d.appendChild(btn);
+    c.appendChild(d);
+    inp.focus();
+  }
+
+  bindClick('btn-add-abs', function () { addPerson('s-abs'); });
+  bindClick('btn-add-lat', function () { addPerson('s-lat'); });
+
+  /* إرسال المناوبة */
+  bindClick('btn-s-send', function () {
+    var ok = true;
+
+    if (!gv('s-date')) { markValid('s-date', false); ok = false; } else { markValid('s-date', true); }
+
+    var irVal = parseTime(gv('s-ir'));
+    if (gv('s-ir') === '') { markValid('s-ir', false); ok = false; } else { markValid('s-ir', true); }
+
+    if (gv('s-total') === '') { markValid('s-total', false); ok = false; } else { markValid('s-total', true); }
+    if (gv('s-fast')  === '') { markValid('s-fast',  false); ok = false; } else { markValid('s-fast',  true); }
+
+    /* تحقق المبرر — فقط عند قيمة رقمية > 8 */
+    if (!isNaN(irVal) && irVal > 8 && irVal !== 0) {
+      if (gv('s-justify') === '') {
+        markValid('s-justify', false);
+        $('s-justify-err').classList.add('show');
+        ok = false;
+      } else {
+        markValid('s-justify', true);
+        $('s-justify-err').classList.remove('show');
+      }
+    }
+
+    if (!ok) {
+      alert('⚠️ يرجى تعبئة جميع الحقول الإلزامية المميزة باللون الأحمر');
+      return;
+    }
+
+    var per = document.querySelector('input[name="sp"]:checked');
+    var m   = '';
+    m += '📋 *نموذج نهاية المناوبة*\n';
+    m += '📅 التاريخ: ' + gv('s-date') + '\n';
+    m += '🕐 الفترة: ' + (per ? per.value : '—') + '\n';
+    m += '\n📊 *الموشر*\n';
+    m += '⏱ متوسط الاستجابة: *' + gv('s-ir') + ' دقيقة*\n';
+    m += '📞 عدد البلاغات: *' + gv('s-total') + '*\n';
+    m += '⚡ البلاغات السريعة: *' + gv('s-fast') + '*\n';
+    if (!isNaN(irVal) && irVal > 8 && irVal !== 0) {
+      m += '📝 مبرر ارتفاع المؤشر: ' + gv('s-justify') + '\n';
+    }
+
+
+    m += '\n🚗 *المركبات*\n';
+    m += '✅ عاملة: *' + (gv('s-vw') || '—') + '*\n';
+    m += '🔄 احتياط: *' + (gv('s-vr') || '—') + '*\n';
+    m += '🔧 متعطلة: *' + (gv('s-vb') || '—') + '*\n';
+    var vN = gv('s-vn');
+    if (vN) m += '⚠️ ملاحظات: ' + vN + '\n';
+
+    m += '\n📋 *البلاغات*\n';
+    Object.keys(sSecs).forEach(function (sid) {
+      var s = sSecs[sid];
+      m += '\n▪️ *القطاع: ' + s.name + '*\n';
+      if (!s.incs.length) {
+        m += '_لا توجد بلاغات_\n';
+      } else {
+        s.incs.forEach(function (inc) {
+          m += '🔹 استجابة ' + inc.n + ': ' + (inc.note || '—') + '\n';
+        });
+      }
+      var se = $('sup' + sid), ce = $('can' + sid);
+      if (se && se.value.trim()) m += '🟢 داعمة: ' + se.value.trim() + '\n';
+      if (ce && ce.value.trim()) m += '🔴 ملغية: ' + ce.value.trim() + '\n';
+    });
+
+    var abs = [].slice.call(document.querySelectorAll('#s-abs input'))
+      .map(function (x) { return x.value.trim(); }).filter(Boolean);
+    var lat = [].slice.call(document.querySelectorAll('#s-lat input'))
+      .map(function (x) { return x.value.trim(); }).filter(Boolean);
+    if (abs.length || lat.length) {
+      m += '\n👤 *الغياب والمتأخرين*\n';
+      if (abs.length) m += '🚫 غياب: *' + abs.join('، ') + '*\n';
+      if (lat.length) m += '⏱ متأخرون: *' + lat.join('، ') + '*\n';
+    }
+
+    var gn = gv('s-gn');
+    if (gn) m += '\n📝 *ملاحظات عامة*\n' + gn + '\n';
+
+    m += '\n👥 *الطاقم*\n';
+    m += '🎖 كبير المسعفين: *' + (gv('s-ch') || '—') + '*\n';
+    m += '🤝 المساعد: *' + (gv('s-as') || '—') + '*';
+
+    sendWA(m);
+  });
+
+  /* ─────────────────────────────────────────
+     ═══ MOSHR FORM ═══
+  ───────────────────────────────────────── */
+  function mBuild() {
+    var per = document.querySelector('input[name="mp"]:checked');
+    var ph  = $('m-ph');
+    var m   = '';
+    m += '📊 *مؤشر المناوبة — قطاع الوسط*\n';
+    m += '*التاريخ:* ' + (gv('m-d') || '—') + '\n';
+    m += '*المناوبة:* ' + (per ? per.value : '—') + '\n';
+    m += '*متوسط وقت الاستجابة:* *' + (gv('m-r') || '—') + '*\n';
+    if (ph && ph.value) m += '\n' + ph.value;
+    return m;
+  }
+
+  function mPrev() { var e = $('m-prev'); if (e) e.textContent = mBuild(); }
+
+  var mdEl = $('m-d'), mrEl = $('m-r'), mphEl = $('m-ph');
+  if (mdEl)  mdEl.addEventListener('input', mPrev);
+  if (mrEl)  mrEl.addEventListener('input', mPrev);
+  if (mphEl) mphEl.addEventListener('change', mPrev);
+  document.querySelectorAll('input[name="mp"]').forEach(function (r) {
+    r.addEventListener('change', mPrev);
+  });
+  mPrev();
+
+  bindClick('btn-m-send', function () { sendWA(mBuild()); });
+
+  /* ─────────────────────────────────────────
+     ═══ OIL FORM ═══
+  ───────────────────────────────────────── */
+  bindClick('btn-o-send', function () {
+    var m = '';
+    m += '🛢 *نموذج تغيير الزيت*\n';
+    m += '📅 التاريخ: *' + (gv('o-d') || '—') + '*\n';
+    m += '\n🚑 *بيانات المركبة*\n';
+    m += '📻 نداء الفرقة: *' + (gv('o-call')  || '—') + '*\n';
+    m += '🔢 رقم اللوحة: *'  + (gv('o-plate') || '—') + '*\n';
+    m += '📏 العداد الحالي: *' + (gv('o-km')  || '—') + ' كم*\n';
+    m += '🗓 الموعد القادم: *' + (gv('o-next') || '—') + ' كم*\n';
+    var n = gv('o-n');
+    if (n) m += '\n📝 *ملاحظات*\n' + n;
+    sendWA(m);
+  });
+
+  /* ─────────────────────────────────────────
+     ═══ DEVICE FORM ═══
+  ───────────────────────────────────────── */
+
+  /* حالة الصيانة — دالة مشتركة للجهاز والمركبة */
+  function bindStatusSelect(selectId, otherWrapId, otherInputId, otherErrId) {
+    var sel = $(selectId);
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      var wrap = $(otherWrapId);
+      var inp  = $(otherInputId);
+      if (this.value === 'أخرى') {
+        if (wrap) wrap.style.display = 'block';
+        if (inp)  inp.required = true;
+      } else {
+        if (wrap) wrap.style.display = 'none';
+        if (inp)  { inp.required = false; inp.value = ''; }
+        var err = $(otherErrId);
+        if (err) err.classList.remove('show');
+        if (inp) inp.classList.remove('invalid');
+      }
+    });
+  }
+
+  /* حالة الصيانة — جهاز */
+  var dStatusEl = $('d-status');
+  if (dStatusEl) {
+    dStatusEl.addEventListener('change', function () {
+      var wrap = $('d-other-wrap');
+      var inp  = $('d-other');
+      var err  = $('d-other-err');
+      if (this.value === 'أخرى') {
+        if (wrap) wrap.style.display = 'block';
+        if (inp)  inp.required = true;
+      } else {
+        if (wrap) wrap.style.display = 'none';
+        if (inp)  { inp.required = false; inp.value = ''; inp.classList.remove('invalid'); }
+        if (err)  err.classList.remove('show');
+      }
+    });
+  }
+
+  bindClick('btn-d-send', function () {
+    var statusVal = gv('d-status');
+    if (!statusVal) {
+      markValid('d-status', false);
+      alert('⚠️ يرجى اختيار حالة الصيانة');
+      return;
+    }
+    markValid('d-status', true);
+    if (statusVal === 'أخرى' && gv('d-other') === '') {
+      markValid('d-other', false);
+      var err = $('d-other-err');
+      if (err) err.classList.add('show');
+      alert('⚠️ يرجى إدخال تفاصيل "أخرى"');
+      return;
+    }
+    markValid('d-other', true);
+    var dOtherErr = $('d-other-err');
+    if (dOtherErr) dOtherErr.classList.remove('show');
+
+    var sE = { 'بسيط': '🟡', 'متوسط': '🟠', 'خطير': '🔴' };
+    var sevVal = gv('d-severity') || '—';
+    var m = '';
+    m += '🔧 *نموذج صيانة جهاز*\n';
+    m += '📅 التاريخ: *' + (gv('d-d') || '—') + '*\n';
+    m += '\n🔧 *بيانات الجهاز*\n';
+    m += '📛 اسم الجهاز: *'   + (gv('d-name')   || '—') + '*\n';
+    m += '🔖 السيريال: *'      + (gv('d-serial') || '—') + '*\n';
+    m += '⚠️ العطل: _'         + (gv('d-fault')  || '—') + '_\n';
+    m += (sE[sevVal] || '⚪') + ' الشدة: *' + sevVal + '*\n';
+    m += '🔩 حالة الصيانة: *'  + statusVal + '*\n';
+    if (statusVal === 'أخرى') {
+      m += '📋 تفاصيل: ' + gv('d-other') + '\n';
+    }
+    var n = gv('d-n');
+    if (n) m += '\n📝 *ملاحظات*\n' + n;
+    sendWA(m);
+  });
+
+  /* ─────────────────────────────────────────
+     ═══ VM FORM ═══
+  ───────────────────────────────────────── */
+
+  /* حالة الصيانة للمركبة */
+  var vmStatus = $('v-status');
+  if (vmStatus) {
+    vmStatus.addEventListener('change', function () {
+      var wrap = $('v-other-wrap');
+      var inp  = $('v-other');
+      var err  = $('v-other-err');
+      if (this.value === 'أخرى') {
+        if (wrap) wrap.style.display = 'block';
+        if (inp)  inp.required = true;
+      } else {
+        if (wrap) wrap.style.display = 'none';
+        if (inp)  { inp.required = false; inp.value = ''; inp.classList.remove('invalid'); }
+        if (err)  err.classList.remove('show');
+      }
+    });
+  }
+
+  bindClick('btn-v-send', function () {
+    var statusVal = gv('v-status');
+    if (!statusVal) {
+      markValid('v-status', false);
+      alert('⚠️ يرجى اختيار حالة الصيانة');
+      return;
+    }
+    markValid('v-status', true);
+
+    if (statusVal === 'أخرى' && gv('v-other') === '') {
+      markValid('v-other', false);
+      $('v-other-err').classList.add('show');
+      alert('⚠️ يرجى إدخال تفاصيل "أخرى"');
+      return;
+    }
+    if ($('v-other')) { markValid('v-other', true); $('v-other-err').classList.remove('show'); }
+
+    var pE = { 'عادية': '🟢', 'عاجلة': '🟡', 'حرجة': '🔴' };
+    var sE = { 'بسيط': '🟡', 'متوسط': '🟠', 'خطير': '🔴' };
+    var pri    = gv('v-pri')      || 'عادية';
+    var sevVal = gv('v-severity') || '—';
+    var m = '';
+    m += '🚑 *نموذج صيانة مركبة*\n';
+    m += '📅 التاريخ: *' + (gv('v-d') || '—') + '*\n';
+    m += '\n🚗 *بيانات المركبة*\n';
+    m += '🔢 رقم المركبة: *' + (gv('v-num') || '—') + '*\n';
+    m += '🏷 النوع: *'         + (gv('v-typ') || '—') + '*\n';
+    m += '📏 العداد: *'         + (gv('v-km')  || '—') + ' كم*\n';
+    m += (pE[pri] || '⚪') + ' الأولوية: *' + pri + '*\n';
+    m += '🔩 حالة الصيانة: *' + statusVal + '*\n';
+    if (statusVal === 'أخرى') {
+      m += '📋 تفاصيل: ' + gv('v-other') + '\n';
+    }
+    m += '\n⚠️ *العطل*\n';
+    m += '📝 وصف العطل: _' + (gv('v-fault') || '—') + '_\n';
+    m += (sE[sevVal] || '⚪') + ' الشدة: *' + sevVal + '*\n';
+    var n = gv('v-n');
+    if (n) m += '\n📝 *ملاحظات*\n' + n;
+    sendWA(m);
+  });
+
+  /* ─────────────────────────────────────────
+     ═══ ROSC FORM ═══
+  ───────────────────────────────────────── */
+  var rCount = 0;
+  var arN    = ['١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩', '١٠'];
+
+  bindClick('btn-r-add', function () {
+    if (rCount >= 10) return;
+    rCount++;
+    var c   = $('r-names');
+    if (!c) return;
+    var d   = addEl('div');
+    d.className = 'nr';
+    var nn  = addEl('span', { textContent: arN[rCount - 1] });
+    nn.className = 'nn';
+    var inp = addEl('input', { type: 'text', placeholder: 'الاسم' },
+      'flex:1;border:1px solid #d5e8f0;border-radius:6px;padding:6px 8px;font-size:.84rem;font-family:inherit;direction:rtl;background:#f9fbfc;');
+    var del = addEl('button', { textContent: '✕' });
+    del.className = 'rm';
+    del.addEventListener('click', function () {
+      d.parentNode.removeChild(d);
+      rCount--;
+      var ab = $('btn-r-add');
+      if (ab) ab.style.display = '';
+      document.querySelectorAll('#r-names .nn').forEach(function (e, i) {
+        e.textContent = arN[i] || (i + 1) + '';
+      });
+    });
+    d.appendChild(nn); d.appendChild(inp); d.appendChild(del);
+    c.appendChild(d);
+    inp.focus();
+    var addBtn = $('btn-r-add');
+    if (rCount >= 10 && addBtn) addBtn.style.display = 'none';
+  });
+
+  bindClick('btn-r-send', function () {
+    var rosc  = gv('r-ro') || 'نعم';
+    var lucas = gv('r-lu') || 'نعم';
+    var m     = '';
+    m += '❤️ *نموذج ROSC*\n';
+    m += '⏰ توقيت البلاغ: *' + (gv('r-ti') || '—') + '*\n';
+    m += '🏷 نوع البلاغ: *' + (gv('r-ty') || '—') + '*\n';
+    m += '📍 موقع البلاغ: *' + (gv('r-lo') || '—') + '*\n';
+    m += '⚡ زمن الاستجابة: *' + (gv('r-re') || '—') + '*\n';
+    m += '\n🚑 *الوحدات المستجيبة*\n';
+    var un = gv('r-un');
+    if (un) un.split('\n').forEach(function (x) { if (x.trim()) m += '• ' + x.trim() + '\n'; });
+    m += '\n✅ *نتائج التدخل*\n';
+    m += '💓 هل تحقق ROSC؟ *' + rosc + (rosc === 'نعم' ? ' 👏' : '') + '*\n';
+    m += '🤖 هل تم استخدام جهاز لوكس؟ *' + lucas + (lucas === 'نعم' ? ' ✅' : '') + '*\n';
+    m += '\nعمل عظيم يجسد الإخلاص والاحترافية في العمل 🌟\n';
+    m += 'بكل فخر واعتزاز نتقدم بجزيل الشكر والعرفان لجهود الزملاء\n';
+    m += 'الذين كان لهم — بعد توفيق الله — الفضل في نجاح عملية الإنعاش القلبي الرئوي\n\n';
+    var names = [].slice.call(document.querySelectorAll('#r-names input'))
+      .map(function (x) { return x.value.trim(); }).filter(Boolean);
+    names.forEach(function (n, i) { m += arN[i] + '- *' + n + '*\n'; });
+    if (names.length) m += '\n';
+    m += '🎯 تحكم عملياتي: *' + (gv('r-op') || '—') + '*\n';
+    m += '🔗 تنسيق استجابة: *' + (gv('r-co') || '—') + '*\n';
+    m += '\nجزاكم الله خيرًا وكتب أجركم وجعل ما قدمتموه في موازين حسناتكم 🌹';
+    sendWA(m);
+  });
+
+}); // end DOMContentLoaded
+</script>
+
+</body>
+</html>
