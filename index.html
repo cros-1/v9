@@ -145,7 +145,8 @@ textarea{resize:vertical;min-height:54px;}
   <h2>&#x1F4CA; الموشر</h2>
   <div class="ff">
     <label>متوسط وقت الاستجابة *</label>
-    <input type="text" id="s-ir" placeholder="مثال: 07:55 أو 8 دقائق">
+    <input type="text" id="s-ir" placeholder="مثال: 08:01" inputmode="numeric">
+<span class="err-msg" id="s-ir-err">اكتب الوقت بصيغة MM:SS مثل 08:01</span>
     <div id="s-ir-badge"></div>
   </div>
   <div class="ff">
@@ -496,53 +497,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Indicator logic */
   /* تحويل HH:MM إلى دقائق — يقبل أي نص */
-  function parseTime(str) {
-    if (!str) return NaN;
-    str = str.trim();
-    /* محاولة HH:MM */
-    var m = str.match(/^(\d{1,2}):(\d{2})$/);
-    if (m) return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
-    /* محاولة رقم فقط */
-    var n = parseFloat(str);
-    if (!isNaN(n)) return n;
-    /* نص حر — نرجع 0 لأغراض التحقق (الحقل ممتلئ) */
-    return 0;
-  }
+  function parseTimeStrict(str){
+  if(!str) return NaN;
+  var m = str.match(/^([0-5]?\d):([0-5]\d)$/);
+  if(!m) return NaN;
+  return (parseInt(m[1],10)*60)+parseInt(m[2],10);
+}
 
   function updateIndicator() {
-    var raw    = gv('s-ir');
-    var badge  = $('s-ir-badge');
-    var jwrap  = $('s-justify-wrap');
-    var jfield = $('s-justify-field');
+  var raw    = gv('s-ir');
+  var badge  = $('s-ir-badge');
+  var jwrap  = $('s-justify-wrap');
+  var jfield = $('s-justify-field');
+  var err    = $('s-ir-err');
 
-    if (!raw) {
-      badge.innerHTML = '';
-      jwrap.classList.remove('show');
-      jfield.style.display = 'none';
-      return;
-    }
-
-    var mins = parseTime(raw);
-    /* إذا كان نصاً حراً (لا يمكن تحديد الدقائق) نخفي المؤشر */
-    var mmStr = raw.match(/^(\d{1,2}):(\d{2})$/) || !isNaN(parseFloat(raw));
-    if (!mmStr) {
-      badge.innerHTML = '';
-      jwrap.classList.remove('show');
-      jfield.style.display = 'none';
-      return;
-    }
-    if (mins <= 8) {
-      badge.innerHTML = '<span class="indicator-badge badge-ok">✅ المؤشر ضمن الحد المقبول</span>';
-      jwrap.classList.remove('show');
-      jfield.style.display = 'none';
-    } else {
-      badge.innerHTML = '<span class="indicator-badge badge-warn">⚠️ المؤشر مرتفع — يلزم مبرر</span>';
-      jwrap.classList.add('show');
-      jfield.style.display = 'block';
-    }
+  if (!raw) {
+    badge.innerHTML = '';
+    jwrap.classList.remove('show');
+    jfield.style.display = 'none';
+    err.classList.remove('show');
+    return;
   }
-  var irEl = $('s-ir');
-  if (irEl) irEl.addEventListener('input', updateIndicator);
+
+  var secs = parseTimeStrict(raw);
+
+  if (isNaN(secs)) {
+    err.classList.add('show');
+    badge.innerHTML = '';
+    jwrap.classList.remove('show');
+    jfield.style.display = 'none';
+    return;
+  }
+
+  err.classList.remove('show');
+
+  if (secs <= 480) {
+    badge.innerHTML = '<span class="indicator-badge badge-ok">✅ المؤشر ضمن الحد المقبول</span>';
+    jwrap.classList.remove('show');
+    jfield.style.display = 'none';
+  } else {
+    badge.innerHTML = '<span class="indicator-badge badge-warn">⚠️ المؤشر مرتفع — يلزم مبرر</span>';
+    jwrap.classList.add('show');
+    jfield.style.display = 'block';
+  }
+}
 
   /* Sectors */
   function sRenderIncs(sid) {
@@ -684,14 +682,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!gv('s-date')) { markValid('s-date', false); ok = false; } else { markValid('s-date', true); }
 
-    var irVal = parseTime(gv('s-ir'));
-    if (gv('s-ir') === '') { markValid('s-ir', false); ok = false; } else { markValid('s-ir', true); }
-
+    var irVal = parseTimeStrict(gv('s-ir'));
+    if (isNaN(irVal)) {
+  markValid('s-ir', false);
+  $('s-ir-err').classList.add('show');
+  ok = false;
+} else {
+  markValid('s-ir', true);
+  $('s-ir-err').classList.remove('show');
+}
     if (gv('s-total') === '') { markValid('s-total', false); ok = false; } else { markValid('s-total', true); }
     if (gv('s-fast')  === '') { markValid('s-fast',  false); ok = false; } else { markValid('s-fast',  true); }
 
     /* تحقق المبرر — فقط عند قيمة رقمية > 8 */
-    if (!isNaN(irVal) && irVal > 8 && irVal !== 0) {
+    if (!isNaN(irVal) && irVal > 480 && irVal !== 0) {
       if (gv('s-justify') === '') {
         markValid('s-justify', false);
         $('s-justify-err').classList.add('show');
