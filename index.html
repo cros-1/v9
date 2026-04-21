@@ -497,11 +497,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Indicator logic */
   /* تحويل HH:MM إلى دقائق — يقبل أي نص */
-  function parseTimeStrict(str){
-  if(!str) return NaN;
-  var m = str.match(/^([0-5]?\d):([0-5]\d)$/);
-  if(!m) return NaN;
-  return (parseInt(m[1],10)*60)+parseInt(m[2],10);
+  function parseTime(str) {
+  if (!str) return NaN;
+  var m = str.match(/^([0-5]?\d):([0-5]\d)$/); // MM:SS فقط
+  if (!m) return NaN;
+
+  var min = parseInt(m[1], 10);
+  var sec = parseInt(m[2], 10);
+
+  return (min * 60) + sec; // بالثواني
 }
 
   function updateIndicator() {
