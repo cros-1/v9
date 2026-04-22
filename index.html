@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -71,7 +70,6 @@ textarea{resize:vertical;min-height:54px;}
 <body>
 
 <!-- ═══════════ HOME ═══════════ -->
-
 <div id="pg-home" style="display:block;min-height:100vh;background:#f0f4f8">
   <div class="hdr">
     <h1>&#x1F691; نظام النماذج الميدانية</h1>
@@ -121,7 +119,6 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ SHIFT ═══════════ -->
-
 <div id="pg-shift" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#1a5276,#1f618d)">
     <button class="bk" id="bk-shift">&#x203A;</button>
@@ -140,76 +137,71 @@ textarea{resize:vertical;min-height:54px;}
       </div>
     </div>
 
-```
-<div class="card" style="border-right:4px solid #2471a3">
-  <h2>&#x1F4CA; الموشر</h2>
-  <div class="ff">
-    <label>متوسط وقت الاستجابة *</label>
-    <input type="text" id="s-ir" placeholder="مثال: 08:01" inputmode="numeric">
-<span class="err-msg" id="s-ir-err">اكتب الوقت بصيغة MM:SS مثل 08:01</span>
-    <div id="s-ir-badge"></div>
-  </div>
-  <div class="ff">
-    <label>عدد البلاغات *</label>
-    <input type="number" id="s-total" placeholder="إجمالي البلاغات" min="0">
-  </div>
-  <div class="ff">
-    <label>عدد البلاغات السريعة *</label>
-    <input type="number" id="s-fast" placeholder="البلاغات السريعة" min="0">
-  </div>
-  <div id="s-justify-wrap" class="warn-box">
-    &#x26A0;&#xFE0F; المؤشر تجاوز 8 دقائق — يرجى إدخال المبرر
-  </div>
-  <div class="ff" id="s-justify-field" style="display:none;margin-top:6px">
-    <label>مبرر ارتفاع المؤشر *</label>
-    <textarea id="s-justify" placeholder="أدخل مبرر ارتفاع المؤشر..."></textarea>
-    <span class="err-msg" id="s-justify-err">هذا الحقل إلزامي عند ارتفاع المؤشر</span>
-  </div>
-</div>
+    <div class="card" style="border-right:4px solid #2471a3">
+      <h2>&#x1F4CA; الموشر</h2>
+      <div class="ff">
+        <label>متوسط وقت الاستجابة (دد:ثث) *</label>
+        <input type="text" id="s-ir" placeholder="مثال: 07:55" maxlength="5">
+        <div id="s-ir-badge"></div>
+      </div>
+      <div class="ff">
+        <label>عدد البلاغات *</label>
+        <input type="number" id="s-total" placeholder="إجمالي البلاغات" min="0">
+      </div>
+      <div class="ff">
+        <label>عدد البلاغات السريعة *</label>
+        <input type="number" id="s-fast" placeholder="البلاغات السريعة" min="0">
+      </div>
+      <div id="s-justify-wrap" class="warn-box">
+        &#x26A0;&#xFE0F; المؤشر تجاوز 8 دقائق — يرجى إدخال السبب
+      </div>
+      <div class="ff" id="s-justify-field" style="display:none;margin-top:6px">
+        <label>سبب ارتفاع المؤشر *</label>
+        <textarea id="s-justify" placeholder="أدخل سبب ارتفاع المؤشر..."></textarea>
+        <span class="err-msg" id="s-justify-err">هذا الحقل إلزامي عند ارتفاع المؤشر</span>
+      </div>
+    </div>
 
-<div class="card">
-  <h2>&#x1F697; المركبات</h2>
-  <div class="row">
-    <div class="fl"><label>عاملة</label><input type="number" id="s-vw" min="0"></div>
-    <div class="fl"><label>احتياط</label><input type="number" id="s-vr" min="0"></div>
-    <div class="fl"><label>متعطلة</label><input type="number" id="s-vb" min="0"></div>
-  </div>
-  <div class="ff"><label>ملاحظات الأعطال</label><textarea id="s-vn" placeholder="ملاحظات..."></textarea></div>
-</div>
+    <div class="card">
+      <h2>&#x1F697; المركبات</h2>
+      <div class="row">
+        <div class="fl"><label>عاملة</label><input type="number" id="s-vw" min="0"></div>
+        <div class="fl"><label>احتياط</label><input type="number" id="s-vr" min="0"></div>
+        <div class="fl"><label>متعطلة</label><input type="number" id="s-vb" min="0"></div>
+      </div>
+      <div class="ff"><label>ملاحظات الأعطال</label><textarea id="s-vn" placeholder="ملاحظات..."></textarea></div>
+    </div>
 
-<div class="card">
-  <h2>&#x1F4CB; بلاغات التدخل السريع</h2>
-  <div id="s-secs"></div>
-</div>
+    <div class="card">
+      <h2>&#x1F4CB; بلاغات التدخل السريع</h2>
+      <div id="s-secs"></div>
+    </div>
 
-<div class="card">
-  <h2>&#x1F464; الغياب والمتأخرين</h2>
-  <div style="font-size:.8rem;font-weight:700;margin-bottom:5px">أسماء الغياب</div>
-  <div id="s-abs"></div>
-  <button class="btn bo2 bsm" id="btn-add-abs">&#x2795; إضافة غياب</button>
-  <hr class="dvd">
-  <div style="font-size:.8rem;font-weight:700;margin:7px 0 5px">أسماء المتأخرين</div>
-  <div id="s-lat"></div>
-  <button class="btn bo2 bsm" id="btn-add-lat">&#x2795; إضافة متأخر</button>
-</div>
+    <div class="card">
+      <h2>&#x1F464; الغياب والمتأخرين</h2>
+      <div style="font-size:.8rem;font-weight:700;margin-bottom:5px">أسماء الغياب</div>
+      <div id="s-abs"></div>
+      <button class="btn bo2 bsm" id="btn-add-abs">&#x2795; إضافة غياب</button>
+      <hr class="dvd">
+      <div style="font-size:.8rem;font-weight:700;margin:7px 0 5px">أسماء المتأخرين</div>
+      <div id="s-lat"></div>
+      <button class="btn bo2 bsm" id="btn-add-lat">&#x2795; إضافة متأخر</button>
+    </div>
 
-<div class="card"><h2>&#x1F4DD; ملاحظات عامة</h2><textarea id="s-gn" placeholder="ملاحظات..."></textarea></div>
+    <div class="card"><h2>&#x1F4DD; ملاحظات عامة</h2><textarea id="s-gn" placeholder="ملاحظات..."></textarea></div>
 
-<div class="card">
-  <h2>&#x1F465; معلومات الطاقم</h2>
-  <div class="row">
-    <div class="fl"><label>كبير المسعفين</label><input type="text" id="s-ch"></div>
-    <div class="fl"><label>المساعد</label><input type="text" id="s-as"></div>
-  </div>
-</div>
-<button class="send-btn" id="btn-s-send">&#x1F4E4; إرسال على الواتساب</button>
-```
-
+    <div class="card">
+      <h2>&#x1F465; معلومات الطاقم</h2>
+      <div class="row">
+        <div class="fl"><label>كبير المسعفين</label><input type="text" id="s-ch"></div>
+        <div class="fl"><label>المساعد</label><input type="text" id="s-as"></div>
+      </div>
+    </div>
+    <button class="send-btn" id="btn-s-send">&#x1F4E4; إرسال على الواتساب</button>
   </div>
 </div>
 
 <!-- ═══════════ MOSHR ═══════════ -->
-
 <div id="pg-moshr" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#148f77,#1abc9c)">
     <button class="bk" id="bk-moshr">&#x203A;</button>
@@ -244,7 +236,6 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ OIL ═══════════ -->
-
 <div id="pg-oil" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#1e8449,#239b56)">
     <button class="bk" id="bk-oil">&#x203A;</button>
@@ -265,7 +256,6 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ DEVICE ═══════════ -->
-
 <div id="pg-device" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#d35400,#e67e22)">
     <button class="bk" id="bk-device">&#x203A;</button>
@@ -308,7 +298,6 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ VM ═══════════ -->
-
 <div id="pg-vm" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#c0392b,#e74c3c)">
     <button class="bk" id="bk-vm">&#x203A;</button>
@@ -364,7 +353,6 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ ROSC ═══════════ -->
-
 <div id="pg-rosc" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#922b21,#e74c3c)">
     <button class="bk" id="bk-rosc">&#x203A;</button>
@@ -496,62 +484,47 @@ document.addEventListener('DOMContentLoaded', function () {
   var sSecs  = {};
 
   /* Indicator logic */
-  /* تحويل HH:MM إلى دقائق — يقبل أي نص */
+  /* تحويل MM:SS إلى إجمالي ثواني */
   function parseTime(str) {
-  if (!str) return NaN;
-  var m = str.match(/^([0-5]?\d):([0-5]\d)$/); // MM:SS فقط
-  if (!m) return NaN;
-
-  var min = parseInt(m[1], 10);
-  var sec = parseInt(m[2], 10);
-
-  return (min * 60) + sec; // بالثواني
-}
+    if (!str) return NaN;
+    str = str.trim();
+    var m = str.match(/^(\d{1,2}):(\d{2})$/);
+    if (!m) return NaN;
+    return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+  }
 
   function updateIndicator() {
-  var raw    = gv('s-ir');
-  var badge  = $('s-ir-badge');
-  var jwrap  = $('s-justify-wrap');
-  var jfield = $('s-justify-field');
-  var err    = $('s-ir-err');
+    var raw    = gv('s-ir');
+    var badge  = $('s-ir-badge');
+    var jwrap  = $('s-justify-wrap');
+    var jfield = $('s-justify-field');
 
-  if (!raw) {
-    badge.innerHTML = '';
-    jwrap.classList.remove('show');
-    jfield.style.display = 'none';
-    err.classList.remove('show');
-    markValid('s-ir', true);
-    return;
+    if (!raw) {
+      badge.innerHTML = '';
+      jwrap.classList.remove('show');
+      jfield.style.display = 'none';
+      return;
+    }
+    var secs = parseTime(raw);
+    if (isNaN(secs)) {
+      badge.innerHTML = '<span class="indicator-badge badge-warn">⚠️ صيغة غير صحيحة — أدخل مثلاً 07:55</span>';
+      jwrap.classList.remove('show');
+      jfield.style.display = 'none';
+      return;
+    }
+    /* الحد الأقصى 8 دقيقة = 480 ثانية — 08:01 = 481 ثانية تتجاوز الحد */
+    if (secs <= 480) {
+      badge.innerHTML = '<span class="indicator-badge badge-ok">✅ المؤشر ضمن الحد المقبول</span>';
+      jwrap.classList.remove('show');
+      jfield.style.display = 'none';
+    } else {
+      badge.innerHTML = '<span class="indicator-badge badge-warn"> المؤشر مرتفع - يرجى ادخال السبب</span>';
+      jwrap.classList.add('show');
+      jfield.style.display = 'block';
+    }
   }
-
-  var secs = parseTime(raw);
-
-  // ❌ صيغة غلط
-  if (isNaN(secs)) {
-    err.classList.add('show');
-    markValid('s-ir', false);
-    badge.innerHTML = '';
-    jwrap.classList.remove('show');
-    jfield.style.display = 'none';
-    return;
-  }
-
-  // ✅ صيغة صحيحة
-  err.classList.remove('show');
-  markValid('s-ir', true);
-
-  var threshold = 8 * 60; // 08:00
-
-  if (secs <= threshold) {
-    badge.innerHTML = '<span class="indicator-badge badge-ok">✅ المؤشر ضمن الحد المقبول</span>';
-    jwrap.classList.remove('show');
-    jfield.style.display = 'none';
-  } else {
-    badge.innerHTML = '<span class="indicator-badge badge-warn">⚠️ المؤشر مرتفع — يلزم مبرر</span>';
-    jwrap.classList.add('show');
-    jfield.style.display = 'block';
-  }
-}
+  var irEl = $('s-ir');
+  if (irEl) irEl.addEventListener('input', updateIndicator);
 
   /* Sectors */
   function sRenderIncs(sid) {
@@ -694,20 +667,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!gv('s-date')) { markValid('s-date', false); ok = false; } else { markValid('s-date', true); }
 
     var irVal = parseTime(gv('s-ir'));
+    if (gv('s-ir') === '' || isNaN(irVal)) { markValid('s-ir', false); ok = false; } else { markValid('s-ir', true); }
 
-if (isNaN(irVal)) {
-  markValid('s-ir', false);
-  $('s-ir-err').classList.add('show');
-  ok = false;
-} else {
-  markValid('s-ir', true);
-  $('s-ir-err').classList.remove('show');
-}
     if (gv('s-total') === '') { markValid('s-total', false); ok = false; } else { markValid('s-total', true); }
     if (gv('s-fast')  === '') { markValid('s-fast',  false); ok = false; } else { markValid('s-fast',  true); }
 
-    /* تحقق المبرر — فقط عند قيمة رقمية > 8 */
-    if (!isNaN(irVal) && irVal > 480 && irVal !== 0) {
+    /* تحقق المبرر — 08:01 = 481 ثانية تتجاوز 480 */
+    if (!isNaN(irVal) && irVal > 480) {
       if (gv('s-justify') === '') {
         markValid('s-justify', false);
         $('s-justify-err').classList.add('show');
@@ -729,22 +695,22 @@ if (isNaN(irVal)) {
     m += '📅 التاريخ: ' + gv('s-date') + '\n';
     m += '🕐 الفترة: ' + (per ? per.value : '—') + '\n';
     m += '\n📊 *الموشر*\n';
-    m += '⏱ متوسط الاستجابة: *' + gv('s-ir') + ' دقيقة*\n';
-    m += '📞 عدد البلاغات: *' + gv('s-total') + '*\n';
-    m += '⚡ البلاغات السريعة: *' + gv('s-fast') + '*\n';
-    if (!isNaN(irVal) && irVal > (8 * 60))
-      m += '📝 مبرر ارتفاع المؤشر: ' + gv('s-justify') + '\n';
+    m += ' متوسط الاستجابة: *' + gv('s-ir') + ' دقيقة*\n';
+    m += ' عدد البلاغات: *' + gv('s-total') + '*\n';
+    m += ' البلاغات السريعة: *' + gv('s-fast') + '*\n';
+    if (!isNaN(irVal) && irVal > 480) {
+      m += ' سبب ارتفاع المؤشر: ' + gv('s-justify') + '\n';
     }
 
 
-    m += '\n🚗 *المركبات*\n';
-    m += '✅ عاملة: *' + (gv('s-vw') || '—') + '*\n';
-    m += '🔄 احتياط: *' + (gv('s-vr') || '—') + '*\n';
-    m += '🔧 متعطلة: *' + (gv('s-vb') || '—') + '*\n';
+    m += '\n *المركبات*\n';
+    m += ' عاملة: *' + (gv('s-vw') || '—') + '*\n';
+    m += ' احتياط: *' + (gv('s-vr') || '—') + '*\n';
+    m += ' متعطلة: *' + (gv('s-vb') || '—') + '*\n';
     var vN = gv('s-vn');
-    if (vN) m += '⚠️ ملاحظات: ' + vN + '\n';
+    if (vN) m += ' ملاحظات: ' + vN + '\n';
 
-    m += '\n📋 *البلاغات*\n';
+    m += '\n *البلاغات*\n';
     Object.keys(sSecs).forEach(function (sid) {
       var s = sSecs[sid];
       m += '\n▪️ *القطاع: ' + s.name + '*\n';
@@ -752,12 +718,12 @@ if (isNaN(irVal)) {
         m += '_لا توجد بلاغات_\n';
       } else {
         s.incs.forEach(function (inc) {
-          m += '🔹 استجابة ' + inc.n + ': ' + (inc.note || '—') + '\n';
+          m += ' استجابة ' + inc.n + ': ' + (inc.note || '—') + '\n';
         });
       }
       var se = $('sup' + sid), ce = $('can' + sid);
-      if (se && se.value.trim()) m += '🟢 داعمة: ' + se.value.trim() + '\n';
-      if (ce && ce.value.trim()) m += '🔴 ملغية: ' + ce.value.trim() + '\n';
+      if (se && se.value.trim()) m += ' داعمة: ' + se.value.trim() + '\n';
+      if (ce && ce.value.trim()) m += ' ملغية: ' + ce.value.trim() + '\n';
     });
 
     var abs = [].slice.call(document.querySelectorAll('#s-abs input'))
@@ -765,17 +731,17 @@ if (isNaN(irVal)) {
     var lat = [].slice.call(document.querySelectorAll('#s-lat input'))
       .map(function (x) { return x.value.trim(); }).filter(Boolean);
     if (abs.length || lat.length) {
-      m += '\n👤 *الغياب والمتأخرين*\n';
-      if (abs.length) m += '🚫 غياب: *' + abs.join('، ') + '*\n';
-      if (lat.length) m += '⏱ متأخرون: *' + lat.join('، ') + '*\n';
+      m += '\n *الغياب والمتأخرين*\n';
+      if (abs.length) m += ' غياب: *' + abs.join('، ') + '*\n';
+      if (lat.length) m += ' متأخرون: *' + lat.join('، ') + '*\n';
     }
 
     var gn = gv('s-gn');
-    if (gn) m += '\n📝 *ملاحظات عامة*\n' + gn + '\n';
+    if (gn) m += '\n *ملاحظات عامة*\n' + gn + '\n';
 
-    m += '\n👥 *الطاقم*\n';
-    m += '🎖 كبير المسعفين: *' + (gv('s-ch') || '—') + '*\n';
-    m += '🤝 المساعد: *' + (gv('s-as') || '—') + '*';
+    m += '\n *الطاقم*\n';
+    m += ' كبير المسعفين: *' + (gv('s-ch') || '—') + '*\n';
+    m += ' المساعد: *' + (gv('s-as') || '—') + '*';
 
     sendWA(m);
   });
@@ -815,13 +781,13 @@ if (isNaN(irVal)) {
     var m = '';
     m += '🛢 *نموذج تغيير الزيت*\n';
     m += '📅 التاريخ: *' + (gv('o-d') || '—') + '*\n';
-    m += '\n🚑 *بيانات المركبة*\n';
-    m += '📻 نداء الفرقة: *' + (gv('o-call')  || '—') + '*\n';
-    m += '🔢 رقم اللوحة: *'  + (gv('o-plate') || '—') + '*\n';
-    m += '📏 العداد الحالي: *' + (gv('o-km')  || '—') + ' كم*\n';
-    m += '🗓 الموعد القادم: *' + (gv('o-next') || '—') + ' كم*\n';
+    m += '\n *بيانات المركبة*\n';
+    m += ' نداء الفرقة: *' + (gv('o-call')  || '—') + '*\n';
+    m += ' رقم اللوحة: *'  + (gv('o-plate') || '—') + '*\n';
+    m += ' العداد الحالي: *' + (gv('o-km')  || '—') + ' كم*\n';
+    m += ' الموعد القادم: *' + (gv('o-next') || '—') + ' كم*\n';
     var n = gv('o-n');
-    if (n) m += '\n📝 *ملاحظات*\n' + n;
+    if (n) m += '\n *ملاحظات*\n' + n;
     sendWA(m);
   });
 
@@ -891,17 +857,17 @@ if (isNaN(irVal)) {
     var m = '';
     m += '🔧 *نموذج صيانة جهاز*\n';
     m += '📅 التاريخ: *' + (gv('d-d') || '—') + '*\n';
-    m += '\n🔧 *بيانات الجهاز*\n';
-    m += '📛 اسم الجهاز: *'   + (gv('d-name')   || '—') + '*\n';
-    m += '🔖 السيريال: *'      + (gv('d-serial') || '—') + '*\n';
-    m += '⚠️ العطل: _'         + (gv('d-fault')  || '—') + '_\n';
+    m += '\n *بيانات الجهاز*\n';
+    m += ' اسم الجهاز: *'   + (gv('d-name')   || '—') + '*\n';
+    m += ' السيريال: *'      + (gv('d-serial') || '—') + '*\n';
+    m += ' العطل: _'         + (gv('d-fault')  || '—') + '_\n';
     m += (sE[sevVal] || '⚪') + ' الشدة: *' + sevVal + '*\n';
-    m += '🔩 حالة الصيانة: *'  + statusVal + '*\n';
+    m += ' حالة الصيانة: *'  + statusVal + '*\n';
     if (statusVal === 'أخرى') {
-      m += '📋 تفاصيل: ' + gv('d-other') + '\n';
+      m += ' تفاصيل: ' + gv('d-other') + '\n';
     }
     var n = gv('d-n');
-    if (n) m += '\n📝 *ملاحظات*\n' + n;
+    if (n) m += '\n *ملاحظات*\n' + n;
     sendWA(m);
   });
 
@@ -951,20 +917,20 @@ if (isNaN(irVal)) {
     var m = '';
     m += '🚑 *نموذج صيانة مركبة*\n';
     m += '📅 التاريخ: *' + (gv('v-d') || '—') + '*\n';
-    m += '\n🚗 *بيانات المركبة*\n';
-    m += '🔢 رقم المركبة: *' + (gv('v-num') || '—') + '*\n';
-    m += '🏷 النوع: *'         + (gv('v-typ') || '—') + '*\n';
-    m += '📏 العداد: *'         + (gv('v-km')  || '—') + ' كم*\n';
+    m += '\n *بيانات المركبة*\n';
+    m += ' رقم المركبة: *' + (gv('v-num') || '—') + '*\n';
+    m += ' النوع: *'         + (gv('v-typ') || '—') + '*\n';
+    m += ' العداد: *'         + (gv('v-km')  || '—') + ' كم*\n';
     m += (pE[pri] || '⚪') + ' الأولوية: *' + pri + '*\n';
-    m += '🔩 حالة الصيانة: *' + statusVal + '*\n';
+    m += ' حالة الصيانة: *' + statusVal + '*\n';
     if (statusVal === 'أخرى') {
-      m += '📋 تفاصيل: ' + gv('v-other') + '\n';
+      m += ' تفاصيل: ' + gv('v-other') + '\n';
     }
-    m += '\n⚠️ *العطل*\n';
-    m += '📝 وصف العطل: _' + (gv('v-fault') || '—') + '_\n';
+    m += '\n *العطل*\n';
+    m += ' وصف العطل: _' + (gv('v-fault') || '—') + '_\n';
     m += (sE[sevVal] || '⚪') + ' الشدة: *' + sevVal + '*\n';
     var n = gv('v-n');
-    if (n) m += '\n📝 *ملاحظات*\n' + n;
+    if (n) m += '\n *ملاحظات*\n' + n;
     sendWA(m);
   });
 
@@ -1007,17 +973,17 @@ if (isNaN(irVal)) {
     var rosc  = gv('r-ro') || 'نعم';
     var lucas = gv('r-lu') || 'نعم';
     var m     = '';
-    m += '❤️ *نموذج ROSC*\n';
-    m += '⏰ توقيت البلاغ: *' + (gv('r-ti') || '—') + '*\n';
-    m += '🏷 نوع البلاغ: *' + (gv('r-ty') || '—') + '*\n';
-    m += '📍 موقع البلاغ: *' + (gv('r-lo') || '—') + '*\n';
-    m += '⚡ زمن الاستجابة: *' + (gv('r-re') || '—') + '*\n';
-    m += '\n🚑 *الوحدات المستجيبة*\n';
+    m += '❤️ *ROSC*\n';
+    m += ' توقيت البلاغ: *' + (gv('r-ti') || '—') + '*\n';
+    m += ' نوع البلاغ: *' + (gv('r-ty') || '—') + '*\n';
+    m += ' موقع البلاغ: *' + (gv('r-lo') || '—') + '*\n';
+    m += ' زمن الاستجابة: *' + (gv('r-re') || '—') + '*\n';
+    m += '\n *الوحدات المستجيبة*\n';
     var un = gv('r-un');
     if (un) un.split('\n').forEach(function (x) { if (x.trim()) m += '• ' + x.trim() + '\n'; });
-    m += '\n✅ *نتائج التدخل*\n';
-    m += '💓 هل تحقق ROSC؟ *' + rosc + (rosc === 'نعم' ? ' 👏' : '') + '*\n';
-    m += '🤖 هل تم استخدام جهاز لوكس؟ *' + lucas + (lucas === 'نعم' ? ' ✅' : '') + '*\n';
+    m += '\n *نتائج التدخل*\n';
+    m += ' هل تحقق ROSC؟ *' + rosc + (rosc === 'نعم' ? ' 👏' : '') + '*\n';
+    m += ' هل تم استخدام جهاز لوكس؟ *' + lucas + (lucas === 'نعم' ? ' ✅' : '') + '*\n';
     m += '\nعمل عظيم يجسد الإخلاص والاحترافية في العمل 🌟\n';
     m += 'بكل فخر واعتزاز نتقدم بجزيل الشكر والعرفان لجهود الزملاء\n';
     m += 'الذين كان لهم — بعد توفيق الله — الفضل في نجاح عملية الإنعاش القلبي الرئوي\n\n';
@@ -1025,14 +991,13 @@ if (isNaN(irVal)) {
       .map(function (x) { return x.value.trim(); }).filter(Boolean);
     names.forEach(function (n, i) { m += arN[i] + '- *' + n + '*\n'; });
     if (names.length) m += '\n';
-    m += '🎯 تحكم عملياتي: *' + (gv('r-op') || '—') + '*\n';
-    m += '🔗 تنسيق استجابة: *' + (gv('r-co') || '—') + '*\n';
+    m += ' تحكم عملياتي: *' + (gv('r-op') || '—') + '*\n';
+    m += ' تنسيق استجابة: *' + (gv('r-co') || '—') + '*\n';
     m += '\nجزاكم الله خيرًا وكتب أجركم وجعل ما قدمتموه في موازين حسناتكم 🌹';
     sendWA(m);
   });
 
 }); // end DOMContentLoaded
 </script>
-
 </body>
 </html>
