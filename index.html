@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -70,6 +71,7 @@ textarea{resize:vertical;min-height:54px;}
 <body>
 
 <!-- ═══════════ HOME ═══════════ -->
+
 <div id="pg-home" style="display:block;min-height:100vh;background:#f0f4f8">
   <div class="hdr">
     <h1>&#x1F691; نظام النماذج الميدانية</h1>
@@ -119,6 +121,7 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ SHIFT ═══════════ -->
+
 <div id="pg-shift" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#1a5276,#1f618d)">
     <button class="bk" id="bk-shift">&#x203A;</button>
@@ -137,71 +140,75 @@ textarea{resize:vertical;min-height:54px;}
       </div>
     </div>
 
-    <div class="card" style="border-right:4px solid #2471a3">
-      <h2>&#x1F4CA; الموشر</h2>
-      <div class="ff">
-        <label>متوسط وقت الاستجابة (دد:ثث) *</label>
-        <input type="text" id="s-ir" placeholder="مثال: 07:55" maxlength="5">
-        <div id="s-ir-badge"></div>
-      </div>
-      <div class="ff">
-        <label>عدد البلاغات *</label>
-        <input type="number" id="s-total" placeholder="إجمالي البلاغات" min="0">
-      </div>
-      <div class="ff">
-        <label>عدد البلاغات السريعة *</label>
-        <input type="number" id="s-fast" placeholder="البلاغات السريعة" min="0">
-      </div>
-      <div id="s-justify-wrap" class="warn-box">
-        &#x26A0;&#xFE0F; المؤشر تجاوز 8 دقائق — يرجى إدخال السبب
-      </div>
-      <div class="ff" id="s-justify-field" style="display:none;margin-top:6px">
-        <label>سبب ارتفاع المؤشر *</label>
-        <textarea id="s-justify" placeholder="أدخل سبب ارتفاع المؤشر..."></textarea>
-        <span class="err-msg" id="s-justify-err">هذا الحقل إلزامي عند ارتفاع المؤشر</span>
-      </div>
-    </div>
+```
+<div class="card" style="border-right:4px solid #2471a3">
+  <h2>&#x1F4CA; الموشر</h2>
+  <div class="ff">
+    <label>متوسط وقت الاستجابة (دد:ثث) *</label>
+    <input type="text" id="s-ir" placeholder="مثال: 07:55" maxlength="5">
+    <div id="s-ir-badge"></div>
+  </div>
+  <div class="ff">
+    <label>عدد البلاغات *</label>
+    <input type="number" id="s-total" placeholder="إجمالي البلاغات" min="0">
+  </div>
+  <div class="ff">
+    <label>عدد البلاغات السريعة *</label>
+    <input type="number" id="s-fast" placeholder="البلاغات السريعة" min="0">
+  </div>
+  <div id="s-justify-wrap" class="warn-box">
+    &#x26A0;&#xFE0F; المؤشر تجاوز 8 دقائق — يرجى إدخال السبب
+  </div>
+  <div class="ff" id="s-justify-field" style="display:none;margin-top:6px">
+    <label>سبب ارتفاع المؤشر *</label>
+    <textarea id="s-justify" placeholder="أدخل سبب ارتفاع المؤشر..."></textarea>
+    <span class="err-msg" id="s-justify-err">هذا الحقل إلزامي عند ارتفاع المؤشر</span>
+  </div>
+</div>
 
-    <div class="card">
-      <h2>&#x1F697; المركبات</h2>
-      <div class="row">
-        <div class="fl"><label>عاملة</label><input type="number" id="s-vw" min="0"></div>
-        <div class="fl"><label>احتياط</label><input type="number" id="s-vr" min="0"></div>
-        <div class="fl"><label>متعطلة</label><input type="number" id="s-vb" min="0"></div>
-      </div>
-      <div class="ff"><label>ملاحظات الأعطال</label><textarea id="s-vn" placeholder="ملاحظات..."></textarea></div>
-    </div>
+<div class="card">
+  <h2>&#x1F697; المركبات</h2>
+  <div class="row">
+    <div class="fl"><label>عاملة</label><input type="number" id="s-vw" min="0"></div>
+    <div class="fl"><label>احتياط</label><input type="number" id="s-vr" min="0"></div>
+    <div class="fl"><label>متعطلة</label><input type="number" id="s-vb" min="0"></div>
+  </div>
+  <div class="ff"><label>ملاحظات الأعطال</label><textarea id="s-vn" placeholder="ملاحظات..."></textarea></div>
+</div>
 
-    <div class="card">
-      <h2>&#x1F4CB; بلاغات التدخل السريع</h2>
-      <div id="s-secs"></div>
-    </div>
+<div class="card">
+  <h2>&#x1F4CB; بلاغات التدخل السريع</h2>
+  <div id="s-secs"></div>
+</div>
 
-    <div class="card">
-      <h2>&#x1F464; الغياب والمتأخرين</h2>
-      <div style="font-size:.8rem;font-weight:700;margin-bottom:5px">أسماء الغياب</div>
-      <div id="s-abs"></div>
-      <button class="btn bo2 bsm" id="btn-add-abs">&#x2795; إضافة غياب</button>
-      <hr class="dvd">
-      <div style="font-size:.8rem;font-weight:700;margin:7px 0 5px">أسماء المتأخرين</div>
-      <div id="s-lat"></div>
-      <button class="btn bo2 bsm" id="btn-add-lat">&#x2795; إضافة متأخر</button>
-    </div>
+<div class="card">
+  <h2>&#x1F464; الغياب والمتأخرين</h2>
+  <div style="font-size:.8rem;font-weight:700;margin-bottom:5px">أسماء الغياب</div>
+  <div id="s-abs"></div>
+  <button class="btn bo2 bsm" id="btn-add-abs">&#x2795; إضافة غياب</button>
+  <hr class="dvd">
+  <div style="font-size:.8rem;font-weight:700;margin:7px 0 5px">أسماء المتأخرين</div>
+  <div id="s-lat"></div>
+  <button class="btn bo2 bsm" id="btn-add-lat">&#x2795; إضافة متأخر</button>
+</div>
 
-    <div class="card"><h2>&#x1F4DD; ملاحظات عامة</h2><textarea id="s-gn" placeholder="ملاحظات..."></textarea></div>
+<div class="card"><h2>&#x1F4DD; ملاحظات عامة</h2><textarea id="s-gn" placeholder="ملاحظات..."></textarea></div>
 
-    <div class="card">
-      <h2>&#x1F465; معلومات الطاقم</h2>
-      <div class="row">
-        <div class="fl"><label>كبير المسعفين</label><input type="text" id="s-ch"></div>
-        <div class="fl"><label>المساعد</label><input type="text" id="s-as"></div>
-      </div>
-    </div>
-    <button class="send-btn" id="btn-s-send">&#x1F4E4; إرسال على الواتساب</button>
+<div class="card">
+  <h2>&#x1F465; معلومات الطاقم</h2>
+  <div class="row">
+    <div class="fl"><label>كبير المسعفين</label><input type="text" id="s-ch"></div>
+    <div class="fl"><label>المساعد</label><input type="text" id="s-as"></div>
+  </div>
+</div>
+<button class="send-btn" id="btn-s-send">&#x1F4E4; إرسال على الواتساب</button>
+```
+
   </div>
 </div>
 
 <!-- ═══════════ MOSHR ═══════════ -->
+
 <div id="pg-moshr" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#148f77,#1abc9c)">
     <button class="bk" id="bk-moshr">&#x203A;</button>
@@ -236,6 +243,7 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ OIL ═══════════ -->
+
 <div id="pg-oil" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#1e8449,#239b56)">
     <button class="bk" id="bk-oil">&#x203A;</button>
@@ -256,6 +264,7 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ DEVICE ═══════════ -->
+
 <div id="pg-device" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#d35400,#e67e22)">
     <button class="bk" id="bk-device">&#x203A;</button>
@@ -269,20 +278,13 @@ textarea{resize:vertical;min-height:54px;}
       <div class="ff"><label>السيريال نمبر</label><input type="text" id="d-serial" placeholder="Serial No."></div>
       <div class="ff"><label>وصف العطل</label><input type="text" id="d-fault" placeholder="وصف العطل"></div>
       <div class="ff">
-        <label>الشدة</label>
-        <select id="d-severity">
-          <option value="بسيط">بسيط</option>
-          <option value="متوسط">متوسط</option>
-          <option value="خطير">خطير</option>
-        </select>
-      </div>
-      <div class="ff">
-        <label>حالة الصيانة *</label>
+        <label>حالة الجهاز *</label>
         <select id="d-status">
           <option value="">-- اختر --</option>
           <option value="يحتاج صيانة">يحتاج صيانة</option>
           <option value="تم الإصلاح">تم الإصلاح</option>
           <option value="خارج الخدمة">خارج الخدمة</option>
+          <option value="سلم للوكيل">سلم للوكيل</option>
           <option value="أخرى">أخرى</option>
         </select>
       </div>
@@ -298,6 +300,7 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ VM ═══════════ -->
+
 <div id="pg-vm" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#c0392b,#e74c3c)">
     <button class="bk" id="bk-vm">&#x203A;</button>
@@ -315,17 +318,19 @@ textarea{resize:vertical;min-height:54px;}
         <div class="fl"><label>عداد الكيلومترات</label><input type="text" id="v-km" placeholder="كم"></div>
         <div class="fl"><label>الأولوية</label>
           <select id="v-pri">
-            <option>عادية</option><option>عاجلة</option><option>حرجة</option>
+            <option value="صيانة عاجلة">صيانة عاجلة</option>
+            <option value="صيانة دورية">صيانة دورية</option>
           </select>
         </div>
       </div>
       <div class="ff">
-        <label>حالة الصيانة *</label>
+        <label>حالة المركبة *</label>
         <select id="v-status">
           <option value="">-- اختر --</option>
-          <option value="يحتاج صيانة">يحتاج صيانة</option>
-          <option value="تم الإصلاح">تم الإصلاح</option>
+          <option value="تحتاج صيانة">تحتاج صيانة</option>
           <option value="خارج الخدمة">خارج الخدمة</option>
+          <option value="تم الإصلاح">تم الإصلاح</option>
+          <option value="سحبت إلى الوكالة">سحبت إلى الوكالة</option>
           <option value="أخرى">أخرى</option>
         </select>
       </div>
@@ -343,7 +348,7 @@ textarea{resize:vertical;min-height:54px;}
         <select id="v-severity">
           <option value="بسيط">بسيط</option>
           <option value="متوسط">متوسط</option>
-          <option value="خطير">خطير</option>
+          <option value="قوي">قوي</option>
         </select>
       </div>
     </div>
@@ -353,6 +358,7 @@ textarea{resize:vertical;min-height:54px;}
 </div>
 
 <!-- ═══════════ ROSC ═══════════ -->
+
 <div id="pg-rosc" class="page">
   <div class="phdr" style="background:linear-gradient(135deg,#922b21,#e74c3c)">
     <button class="bk" id="bk-rosc">&#x203A;</button>
@@ -518,7 +524,7 @@ document.addEventListener('DOMContentLoaded', function () {
       jwrap.classList.remove('show');
       jfield.style.display = 'none';
     } else {
-      badge.innerHTML = '<span class="indicator-badge badge-warn"> المؤشر مرتفع - يرجى ادخال السبب</span>';
+      badge.innerHTML = '<span class="indicator-badge badge-warn">⚠️ المؤشر مرتفع — ادخل السبب</span>';
       jwrap.classList.add('show');
       jfield.style.display = 'block';
     }
@@ -699,7 +705,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m += ' عدد البلاغات: *' + gv('s-total') + '*\n';
     m += ' البلاغات السريعة: *' + gv('s-fast') + '*\n';
     if (!isNaN(irVal) && irVal > 480) {
-      m += ' سبب ارتفاع المؤشر: ' + gv('s-justify') + '\n';
+      m += ' مبرر ارتفاع المؤشر: ' + gv('s-justify') + '\n';
     }
 
 
@@ -713,7 +719,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m += '\n *البلاغات*\n';
     Object.keys(sSecs).forEach(function (sid) {
       var s = sSecs[sid];
-      m += '\n▪️ *القطاع: ' + s.name + '*\n';
+      m += '\n *القطاع: ' + s.name + '*\n';
       if (!s.incs.length) {
         m += '_لا توجد بلاغات_\n';
       } else {
@@ -852,22 +858,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var dOtherErr = $('d-other-err');
     if (dOtherErr) dOtherErr.classList.remove('show');
 
-    var sE = { 'بسيط': '🟡', 'متوسط': '🟠', 'خطير': '🔴' };
-    var sevVal = gv('d-severity') || '—';
     var m = '';
     m += '🔧 *نموذج صيانة جهاز*\n';
     m += '📅 التاريخ: *' + (gv('d-d') || '—') + '*\n';
-    m += '\n *بيانات الجهاز*\n';
-    m += ' اسم الجهاز: *'   + (gv('d-name')   || '—') + '*\n';
-    m += ' السيريال: *'      + (gv('d-serial') || '—') + '*\n';
-    m += ' العطل: _'         + (gv('d-fault')  || '—') + '_\n';
-    m += (sE[sevVal] || '⚪') + ' الشدة: *' + sevVal + '*\n';
-    m += ' حالة الصيانة: *'  + statusVal + '*\n';
+    m += '\n🔧 *بيانات الجهاز*\n';
+    m += ' اسم الجهاز: *'  + (gv('d-name')   || '—') + '*\n';
+    m += ' السيريال: *'     + (gv('d-serial') || '—') + '*\n';
+    m += ' وصف العطل: _'   + (gv('d-fault')  || '—') + '_\n';
+    m += ' حالة الجهاز: *' + statusVal + '*\n';
     if (statusVal === 'أخرى') {
       m += ' تفاصيل: ' + gv('d-other') + '\n';
     }
     var n = gv('d-n');
-    if (n) m += '\n *ملاحظات*\n' + n;
+    if (n) m += '\n📝 *ملاحظات*\n' + n;
     sendWA(m);
   });
 
@@ -897,7 +900,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var statusVal = gv('v-status');
     if (!statusVal) {
       markValid('v-status', false);
-      alert('⚠️ يرجى اختيار حالة الصيانة');
+      alert(' يرجى اختيار حالة الصيانة');
       return;
     }
     markValid('v-status', true);
@@ -905,24 +908,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (statusVal === 'أخرى' && gv('v-other') === '') {
       markValid('v-other', false);
       $('v-other-err').classList.add('show');
-      alert('⚠️ يرجى إدخال تفاصيل "أخرى"');
+      alert(' يرجى إدخال تفاصيل "أخرى"');
       return;
     }
     if ($('v-other')) { markValid('v-other', true); $('v-other-err').classList.remove('show'); }
 
-    var pE = { 'عادية': '🟢', 'عاجلة': '🟡', 'حرجة': '🔴' };
-    var sE = { 'بسيط': '🟡', 'متوسط': '🟠', 'خطير': '🔴' };
-    var pri    = gv('v-pri')      || 'عادية';
+    var sE = { 'بسيط': '🟡', 'متوسط': '🟠', 'قوي': '🔴' };
+    var pri    = gv('v-pri')      || '—';
     var sevVal = gv('v-severity') || '—';
     var m = '';
     m += '🚑 *نموذج صيانة مركبة*\n';
     m += '📅 التاريخ: *' + (gv('v-d') || '—') + '*\n';
     m += '\n *بيانات المركبة*\n';
     m += ' رقم المركبة: *' + (gv('v-num') || '—') + '*\n';
-    m += ' النوع: *'         + (gv('v-typ') || '—') + '*\n';
-    m += ' العداد: *'         + (gv('v-km')  || '—') + ' كم*\n';
-    m += (pE[pri] || '⚪') + ' الأولوية: *' + pri + '*\n';
-    m += ' حالة الصيانة: *' + statusVal + '*\n';
+    m += ' النوع: *'        + (gv('v-typ') || '—') + '*\n';
+    m += ' العداد: *'        + (gv('v-km')  || '—') + ' كم*\n';
+    m += ' الأولوية: *'      + pri + '*\n';
+    m += ' حالة المركبة: *'  + statusVal + '*\n';
     if (statusVal === 'أخرى') {
       m += ' تفاصيل: ' + gv('v-other') + '\n';
     }
@@ -930,7 +932,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m += ' وصف العطل: _' + (gv('v-fault') || '—') + '_\n';
     m += (sE[sevVal] || '⚪') + ' الشدة: *' + sevVal + '*\n';
     var n = gv('v-n');
-    if (n) m += '\n *ملاحظات*\n' + n;
+    if (n) m += '\n📝 *ملاحظات*\n' + n;
     sendWA(m);
   });
 
@@ -999,5 +1001,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 }); // end DOMContentLoaded
 </script>
+
 </body>
 </html>
